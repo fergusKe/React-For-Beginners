@@ -27,6 +27,15 @@ class App extends Component {
 		})
 	}
 
+	addToOrder = (key) => {
+		// take a copy of our state
+    const order = {...this.state.order}
+    // update on add the new number of fish ordered
+    order[key] = order[key] + 1 || 1
+    // update our state
+		this.setState({ order })
+  }
+
 	render() {
 		return (
 			<div className="catch-of-the-day">
@@ -36,7 +45,7 @@ class App extends Component {
 						{
 							Object
 								.keys(this.state.fishes)
-								.map(key => <Fish key={key} details={this.state.fishes[key]} />)
+								.map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} />)
 						}
 					</ul>
 				</div>
