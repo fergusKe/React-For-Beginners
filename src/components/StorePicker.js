@@ -5,7 +5,7 @@ class StorePicker extends Component {
 	goToStore = (e) => {
 		e.preventDefault()
 		const storeId = this.storeInput.value
-		
+
 		this.context.router.transitionTo(`/store/${storeId}`)
 	}
 
